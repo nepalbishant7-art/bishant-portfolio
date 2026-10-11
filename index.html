@@ -1,0 +1,2351 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bishant | Portfolio</title>
+
+
+    <!-- ================= CSS ================= -->
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        :root {
+            --primary: #6c63ff;
+            --secondary: #8f88ff;
+            --background: #f7f7fb;
+            --card: #ffffff;
+            --text: #202020;
+            --muted: #666666;
+            --border: #dddddd;
+        }
+
+
+        body.dark {
+            --background: #101116;
+            --card: #191b23;
+            --text: #ffffff;
+            --muted: #bbbbbb;
+            --border: #333642;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: var(--card);
+
+            box-shadow:
+                0 2px 15px rgba(0,0,0,0.08);
+        }
+
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .logo span,
+        footer span {
+            color: var(--primary);
+        }
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+
+        .theme-btn,
+        .menu-btn {
+            border: none;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+
+        .menu-btn {
+            display: none;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding:
+                140px 8%
+                80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 60px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--background),
+                    rgba(108,99,255,0.12)
+                );
+        }
+
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+
+        .small-title {
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+
+        .hero-buttons {
+            margin-top: 30px;
+
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+            padding:
+                13px 25px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: var(--primary);
+
+            color: white;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+
+        .btn.second {
+            background: transparent;
+            color: var(--primary);
+
+            border:
+                2px solid var(--primary);
+        }
+
+
+        /* ================= PROFILE ================= */
+
+        .hero-card {
+            width: 330px;
+
+            padding:
+                45px 30px;
+
+            text-align: center;
+
+            background: var(--card);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.15);
+        }
+
+
+        .profile-circle {
+            width: 180px;
+            height: 180px;
+
+            margin:
+                auto auto 25px;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            border:
+                5px solid var(--primary);
+
+            color: white;
+
+            font-size: 90px;
+            font-weight: bold;
+        }
+
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* ================= GENERAL ================= */
+
+        .section {
+            padding:
+                100px 8%;
+        }
+
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+
+        .section-title p {
+            color: var(--primary);
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.3fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .about-image {
+            height: 400px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .big-letter {
+            font-size: 180px;
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+
+        .about-text h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+
+        .info-grid {
+            margin-top: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .info-grid strong {
+            color: var(--primary);
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills-section {
+            background:
+                rgba(108,99,255,0.06);
+        }
+
+
+        .skills-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+        }
+
+
+        .progress {
+            height: 12px;
+
+            border-radius: 20px;
+
+            background: #ddd;
+
+            overflow: hidden;
+        }
+
+
+        .progress div {
+            height: 100%;
+
+            background: var(--primary);
+
+            border-radius: 20px;
+        }
+
+
+        /* ================= PROJECTS ================= */
+
+        .project-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .project-card {
+            padding: 30px;
+
+            background: var(--card);
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+
+        .project-card h3 {
+            margin-bottom: 12px;
+        }
+
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+
+        .project-link {
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background:
+                rgba(108,99,255,0.06);
+        }
+
+
+        .contact-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 60px;
+        }
+
+
+        .contact-info h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+
+        .contact-info > p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+
+        .contact-item {
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+            font-size: 25px;
+        }
+
+
+        .contact-item strong {
+            font-size: 16px;
+        }
+
+
+        .contact-item p {
+            font-size: 15px;
+
+            color: var(--muted);
+        }
+
+
+        /* ================= FORMS ================= */
+
+        .contact-form,
+        .submission-box {
+            background: var(--card);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+        }
+
+
+        label {
+            display: block;
+
+            margin:
+                15px 0 7px;
+
+            font-weight: bold;
+        }
+
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+
+            padding: 13px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary);
+        }
+
+
+        textarea {
+            resize: vertical;
+        }
+
+
+        /* ================= SUBMISSION ================= */
+
+        .submission-box {
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+
+        .submission-description {
+            color: var(--muted);
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .success-message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            background: #d8f8df;
+
+            color: #176b2c;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= SUBMISSIONS ================= */
+
+        .admin-section {
+            text-align: center;
+        }
+
+
+        .delete-btn {
+            margin-left: 10px;
+
+            padding:
+                13px 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #d93636;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        .submission-list {
+            max-width: 900px;
+
+            margin:
+                30px auto;
+
+            text-align: left;
+        }
+
+
+        .submission-card {
+            background: var(--card);
+
+            padding: 25px;
+
+            margin-bottom: 15px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+        }
+
+
+        .submission-card h3 {
+            color: var(--primary);
+        }
+
+
+        .submission-card p {
+            color: var(--muted);
+
+            margin: 5px 0;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background: #11131a;
+
+            color: white;
+        }
+
+
+        footer h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+
+        footer p {
+            color: #aaa;
+        }
+
+
+        .social-links {
+            margin-top: 20px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .social-links a {
+            color: white;
+
+            text-decoration: none;
+        }
+
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+
+                flex-direction: column;
+
+                background: var(--card);
+
+                padding: 20px;
+
+                text-align: center;
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            .hero {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-card {
+                width: 100%;
+
+                max-width: 330px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .navbar {
+                padding: 15px;
+            }
+
+
+            .section {
+                padding:
+                    70px 5%;
+            }
+
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .profile-circle {
+                width: 150px;
+                height: 150px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Bishant<span>.</span>
+        </div>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+                <a href="#submit">Submit</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-buttons">
+
+            <button
+                class="theme-btn"
+                id="themeBtn">
+                🌙
+            </button>
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn">
+                ☰
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= HOME ================= -->
+
+<section
+    class="hero"
+    id="home">
+
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            WELCOME TO MY PORTFOLIO
+        </p>
+
+
+        <h1>
+            Hi, I'm
+            <span>Bishant</span>
+        </h1>
+
+
+        <h2>
+            Web Developer & Programmer
+        </h2>
+
+
+        <p>
+            Welcome to my personal portfolio website.
+            Explore my skills, projects and experience.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="btn">
+
+                View My Projects
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="btn second">
+
+                Contact Me
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PROFILE CARD -->
+
+    <div class="hero-card">
+
+        <div class="profile-circle">
+
+            <!-- Put your photo beside this file
+                 and name it bishant.jpg -->
+
+            <img
+                src="bishant.jpg"
+                alt="Bishant"
+                onerror="
+                    this.style.display='none';
+                    this.parentElement.innerHTML='B';
+                "
+            >
+
+        </div>
+
+
+        <h2>
+            Bishant
+        </h2>
+
+
+        <p>
+            Developer • Designer • Learner
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+    class="section"
+    id="about">
+
+
+    <div class="section-title">
+
+        <p>
+            GET TO KNOW ME
+        </p>
+
+
+        <h2>
+            About Me
+        </h2>
+
+    </div>
+
+
+
+    <div class="about-container">
+
+
+        <div class="about-image">
+
+            <div class="big-letter">
+                B
+            </div>
+
+        </div>
+
+
+
+        <div class="about-text">
+
+            <h2>
+                I'm Bishant
+            </h2>
+
+
+            <p>
+                Hello! My name is Bishant.
+                I am interested in web development,
+                programming and technology.
+            </p>
+
+
+            <p>
+                I enjoy creating websites and learning
+                new programming skills.
+                This portfolio contains information
+                about me, my skills and my projects.
+            </p>
+
+
+
+            <div class="info-grid">
+
+
+                <div>
+
+                    <strong>
+                        Name
+                    </strong>
+
+                    <p>
+                        Bishant
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Profession
+                    </strong>
+
+                    <p>
+                        Web Developer
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Location
+                    </strong>
+
+                    <p>
+                        Nepal
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <p>
+                        your@email.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SKILLS ================= -->
+
+<section
+    class="section skills-section"
+    id="skills">
+
+
+    <div class="section-title">
+
+        <p>
+            WHAT I KNOW
+        </p>
+
+
+        <h2>
+            My Skills
+        </h2>
+
+    </div>
+
+
+
+    <div class="skills-container">
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+
+                <span>
+                    HTML
+                </span>
+
+                <span>
+                    90%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    style="width:90%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+
+                <span>
+                    CSS
+                </span>
+
+                <span>
+                    85%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    style="width:85%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+
+                <span>
+                    JavaScript
+                </span>
+
+                <span>
+                    75%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    style="width:75%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+
+                <span>
+                    Python
+                </span>
+
+                <span>
+                    70%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    style="width:70%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section
+    class="section"
+    id="projects">
+
+
+    <div class="section-title">
+
+        <p>
+            MY WORK
+        </p>
+
+
+        <h2>
+            My Projects
+        </h2>
+
+    </div>
+
+
+
+    <div class="project-container">
+
+
+        <div class="project-card">
+
+            <div class="project-icon">
+                💻
+            </div>
+
+
+            <h3>
+                Portfolio Website
+            </h3>
+
+
+            <p>
+                A responsive personal portfolio
+                website created using HTML,
+                CSS and JavaScript.
+            </p>
+
+
+            <a
+                href="#"
+                class="project-link">
+
+                View Project →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="project-card">
+
+            <div class="project-icon">
+                🌐
+            </div>
+
+
+            <h3>
+                Website Project
+            </h3>
+
+
+            <p>
+                A modern website project with
+                responsive design and
+                interactive features.
+            </p>
+
+
+            <a
+                href="#"
+                class="project-link">
+
+                View Project →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="project-card">
+
+            <div class="project-icon">
+                🚀
+            </div>
+
+
+            <h3>
+                JavaScript App
+            </h3>
+
+
+            <p>
+                An interactive JavaScript
+                application created for
+                learning and experimentation.
+            </p>
+
+
+            <a
+                href="#"
+                class="project-link">
+
+                View Project →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+    class="section contact-section"
+    id="contact">
+
+
+    <div class="section-title">
+
+        <p>
+            GET IN TOUCH
+        </p>
+
+
+        <h2>
+            Contact Me
+        </h2>
+
+    </div>
+
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-info">
+
+            <h2>
+                Let's Talk
+            </h2>
+
+
+            <p>
+                If you want to contact me,
+                use the form or the information
+                below.
+            </p>
+
+
+
+            <div class="contact-item">
+
+                📧
+
+                <div>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <p>
+                        your@email.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-item">
+
+                📱
+
+                <div>
+
+                    <strong>
+                        Phone
+                    </strong>
+
+                    <p>
+                        +977 XXXXXXXX
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-item">
+
+                📍
+
+                <div>
+
+                    <strong>
+                        Location
+                    </strong>
+
+                    <p>
+                        Nepal
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+            id="contactForm"
+            class="contact-form">
+
+
+            <label>
+                Your Name
+            </label>
+
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label>
+                Email
+            </label>
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>
+                Phone
+            </label>
+
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+            >
+
+
+            <label>
+                Message
+            </label>
+
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= VISITOR FORM ================= -->
+
+<section
+    class="section"
+    id="submit">
+
+
+    <div class="section-title">
+
+        <p>
+            VISITOR INFORMATION
+        </p>
+
+
+        <h2>
+            Submit Your Information
+        </h2>
+
+    </div>
+
+
+
+    <div class="submission-box">
+
+
+        <p class="submission-description">
+
+            Visitors can submit their information
+            using this form.
+
+        </p>
+
+
+
+        <form id="visitorForm">
+
+
+            <div class="form-row">
+
+
+                <div>
+
+                    <label>
+                        Full Name *
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="visitorName"
+                        placeholder="Full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Email *
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="visitorEmail"
+                        placeholder="Email address"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div>
+
+                    <label>
+                        Phone
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="visitorPhone"
+                        placeholder="Phone number"
+                    >
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Subject
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="visitorSubject"
+                        placeholder="Subject"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <label>
+                Reason for contacting
+            </label>
+
+
+            <select id="visitorReason">
+
+                <option value="General">
+                    General
+                </option>
+
+                <option value="Project">
+                    Project
+                </option>
+
+                <option value="Business">
+                    Business
+                </option>
+
+                <option value="Collaboration">
+                    Collaboration
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+
+            <label>
+                Message *
+            </label>
+
+
+            <textarea
+                id="visitorMessage"
+                rows="6"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Submit Information
+
+            </button>
+
+        </form>
+
+
+
+        <div
+            id="successMessage"
+            class="success-message">
+
+            Information submitted successfully!
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SAVED SUBMISSIONS ================= -->
+
+<section
+    class="section admin-section"
+    id="submissions">
+
+
+    <div class="section-title">
+
+        <p>
+            LOCAL DATA
+        </p>
+
+
+        <h2>
+            Submitted Information
+        </h2>
+
+    </div>
+
+
+
+    <button
+        id="showSubmissions"
+        class="btn">
+
+        Show Submissions
+
+    </button>
+
+
+
+    <button
+        id="clearSubmissions"
+        class="delete-btn">
+
+        Clear All
+
+    </button>
+
+
+
+    <div
+        id="submissionList"
+        class="submission-list">
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        Bishant<span>.</span>
+    </h2>
+
+
+    <p>
+        © 2026 Bishant. All Rights Reserved.
+    </p>
+
+
+    <div class="social-links">
+
+
+        <a
+            href="https://facebook.com/"
+            target="_blank">
+
+            Facebook
+
+        </a>
+
+
+        <a
+            href="https://instagram.com/"
+            target="_blank">
+
+            Instagram
+
+        </a>
+
+
+        <a
+            href="https://github.com/"
+            target="_blank">
+
+            GitHub
+
+        </a>
+
+
+        <a
+            href="https://tiktok.com/"
+            target="_blank">
+
+            TikTok
+
+        </a>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuBtn.addEventListener(
+    "click",
+    function() {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+
+/* CLOSE MENU WHEN LINK IS CLICKED */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+const themeBtn =
+    document.getElementById("themeBtn");
+
+
+themeBtn.addEventListener(
+    "click",
+    function() {
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+        if (
+            document.body.classList.contains(
+                "dark"
+            )
+        ) {
+
+            themeBtn.textContent = "☀️";
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+        }
+
+        else {
+
+            themeBtn.textContent = "🌙";
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* LOAD SAVED THEME */
+
+if (
+    localStorage.getItem("theme")
+    ===
+    "dark"
+) {
+
+    document.body.classList.add("dark");
+
+    themeBtn.textContent = "☀️";
+
+}
+
+
+
+/* =========================================
+   CONTACT FORM
+========================================= */
+
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+
+
+contactForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "name"
+            ).value;
+
+
+        alert(
+            "Thank you " +
+            name +
+            "! Your message has been received."
+        );
+
+
+        contactForm.reset();
+
+    }
+);
+
+
+
+/* =========================================
+   VISITOR SUBMISSION
+========================================= */
+
+const visitorForm =
+    document.getElementById(
+        "visitorForm"
+    );
+
+
+const successMessage =
+    document.getElementById(
+        "successMessage"
+    );
+
+
+visitorForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const visitor = {
+
+            name:
+                document.getElementById(
+                    "visitorName"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "visitorEmail"
+                ).value,
+
+            phone:
+                document.getElementById(
+                    "visitorPhone"
+                ).value,
+
+            subject:
+                document.getElementById(
+                    "visitorSubject"
+                ).value,
+
+            reason:
+                document.getElementById(
+                    "visitorReason"
+                ).value,
+
+            message:
+                document.getElementById(
+                    "visitorMessage"
+                ).value,
+
+            date:
+                new Date().toLocaleString()
+
+        };
+
+
+        let submissions =
+            JSON.parse(
+                localStorage.getItem(
+                    "bishantSubmissions"
+                )
+            ) || [];
+
+
+        submissions.push(visitor);
+
+
+        localStorage.setItem(
+            "bishantSubmissions",
+            JSON.stringify(
+                submissions
+            )
+        );
+
+
+        successMessage.style.display =
+            "block";
+
+
+        visitorForm.reset();
+
+
+        setTimeout(
+            function() {
+
+                successMessage.style.display =
+                    "none";
+
+            },
+            4000
+        );
+
+    }
+);
+
+
+
+/* =========================================
+   SHOW SUBMISSIONS
+========================================= */
+
+const showSubmissions =
+    document.getElementById(
+        "showSubmissions"
+    );
+
+
+const submissionList =
+    document.getElementById(
+        "submissionList"
+    );
+
+
+showSubmissions.addEventListener(
+    "click",
+    function() {
+
+
+        const submissions =
+            JSON.parse(
+                localStorage.getItem(
+                    "bishantSubmissions"
+                )
+            ) || [];
+
+
+        submissionList.innerHTML = "";
+
+
+        if (
+            submissions.length === 0
+        ) {
+
+            submissionList.innerHTML =
+                "<p>No submissions yet.</p>";
+
+            return;
+
+        }
+
+
+        submissions.forEach(
+            function(data, index) {
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "submission-card";
+
+
+                card.innerHTML = `
+
+                    <h3>
+                        ${index + 1}.
+                        ${escapeHTML(data.name)}
+                    </h3>
+
+                    <p>
+                        <strong>Email:</strong>
+                        ${escapeHTML(data.email)}
+                    </p>
+
+                    <p>
+                        <strong>Phone:</strong>
+                        ${escapeHTML(
+                            data.phone ||
+                            "Not provided"
+                        )}
+                    </p>
+
+                    <p>
+                        <strong>Subject:</strong>
+                        ${escapeHTML(
+                            data.subject ||
+                            "Not provided"
+                        )}
+                    </p>
+
+                    <p>
+                        <strong>Reason:</strong>
+                        ${escapeHTML(data.reason)}
+                    </p>
+
+                    <p>
+                        <strong>Message:</strong>
+                        ${escapeHTML(data.message)}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        ${escapeHTML(data.date)}
+                    </p>
+
+                `;
+
+
+                submissionList.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================
+   CLEAR SUBMISSIONS
+========================================= */
+
+const clearSubmissions =
+    document.getElementById(
+        "clearSubmissions"
+    );
+
+
+clearSubmissions.addEventListener(
+    "click",
+    function() {
+
+
+        const confirmation =
+            confirm(
+                "Are you sure you want to delete all submissions?"
+            );
+
+
+        if (confirmation) {
+
+            localStorage.removeItem(
+                "bishantSubmissions"
+            );
+
+
+            submissionList.innerHTML =
+                "<p>All submissions deleted.</p>";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   SECURITY HELPER
+========================================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+
+    div.textContent =
+        text || "";
+
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+</body>
+</html>
+```
